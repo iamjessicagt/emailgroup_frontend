@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 
-export class UserService {
+export class AccountService {
   private apiServerUrl = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) { }
