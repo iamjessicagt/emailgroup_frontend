@@ -10,6 +10,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  [x: string]: any;
   public users: User[] = [];
   public editUser: User | undefined;
   public deleteUser: User | undefined;
@@ -33,7 +34,7 @@ export class AppComponent implements OnInit {
   }
 
   public onAddUser(addForm: NgForm): void {
-    document.getElementById('add-user-form').click();
+    document.getElementById('add-user-form')!.click();
     this.accountService.addUser(addForm.value).subscribe(
       (response: User) => {
         console.log(response);
@@ -75,7 +76,8 @@ export class AppComponent implements OnInit {
     console.log(key);
     const results: User[] = [];
     for (const user of this.users) {
-      if (user.name.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      if (user.firstName.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || user.lastName.toLowerCase().indexOf(key.toLowerCase()) !== -1
       || user.email.toLowerCase().indexOf(key.toLowerCase()) !== -1
       || user.phoneNumber.toLowerCase().indexOf(key.toLowerCase()) !== -1
       || user.birthday.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
@@ -105,7 +107,7 @@ export class AppComponent implements OnInit {
       this.deleteUser = user;
       button.setAttribute('data-target', '#deleteUserModal');
     }
-    container.appendChild(button);
+    container!.appendChild(button);
     button.click();
   }
 }
