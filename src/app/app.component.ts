@@ -9,13 +9,14 @@ import { NgForm } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit {
   [x: string]: any;
   public users: User[] = [];
   public editUser: User | undefined;
   public deleteUser: User | undefined;
 
-  constructor(private accountService: AccountService){}
+  constructor(private accountService: AccountService) { }
 
   ngOnInit() {
     this.getUsers();
@@ -77,10 +78,10 @@ export class AppComponent implements OnInit {
     const results: User[] = [];
     for (const user of this.users) {
       if (user.firstName.toLowerCase().indexOf(key.toLowerCase()) !== -1
-      || user.lastName.toLowerCase().indexOf(key.toLowerCase()) !== -1
-      || user.email.toLowerCase().indexOf(key.toLowerCase()) !== -1
-      || user.phoneNumber.toLowerCase().indexOf(key.toLowerCase()) !== -1
-      || user.birthday.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+        || user.lastName.toLowerCase().indexOf(key.toLowerCase()) !== -1
+        || user.email.toLowerCase().indexOf(key.toLowerCase()) !== -1
+        || user.phoneNumber.toLowerCase().indexOf(key.toLowerCase()) !== -1
+        || user.birthday.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
         results.push(user);
       }
     }
