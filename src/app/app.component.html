@@ -1,190 +1,45 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" style="color: white">User Manager</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
-    aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarColor02">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" (click)="onOpenModal(user, 'add')">Add user <span class="sr-only">(current)</span></a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input type="search" (ngModelChange)="searchUsers(key.value)" #key="ngModel" ngModel name="key" id="searchName"
-        class="form-control mr-sm-2" placeholder="Search users..." required />
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+  <title>Mcknight Crossings Church Group Email</title>
+</head>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a href="#" class="navbar-brand"><img src="/assets/imgs/logo.png" alt="Logo" title="Logo"></a>
+  </nav>
+</header>
+
+<body>
+  <div class="wrapper bg-white">
+    <div class="h4 text-center">Welcome, Service Team!</div>
+    <div class="h6 text-muted text-center pt-2">Enter your login details</div>
+    <form class="pt-3">
+      <div class="form-group py-2">
+        <div class="input-field"> <span class="far fa-user p-2"></span> <input type="text" placeholder="Email Address"
+            required class=""> </div>
+      </div>
+      <div class="form-group py-1 pb-2">
+        <div class="input-field"> <span class="fas fa-lock p-2"></span> <input type="text"
+            placeholder="Enter your Password" required class=""> <button class="btn bg-white text-muted"> <span
+              class="far fa-eye-slash"></span> </button> </div>
+      </div>
+      <div class="d-flex align-items-start">
+        <div class="remember"> <label class="option text-muted"> Remember me <input type="radio" name="radio"> <span
+              class="checkmark"></span> </label> </div>
+        <div class="ml-auto"> <a href="#" id="forgot">Forgot Password?</a> </div>
+      </div> <button class="btn btn-block text-center my-3">Log in</button>
+      <div class="text-center pt-3 text-muted">Not a member? <a href="#">Sign up</a></div>
     </form>
   </div>
-</nav>
+</body>
 
-<div class="container" id="main-container">
-  <div class="row">
-    <div *ngFor="let user of users" class="col-md-6 col-xl-3">
-      <div class="card m-b-30">
-        <div class="card-body row">
-          <div class="col-6 card-title align-self-center mb-0">
-            <h5>{{ user?.firstName }} {{ user?.lastName }}</h5>
-            <p class="m-0">{{ user?.birthday }}</p>
-          </div>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <i class="fa fa-envelope float-right"></i>{{ user?.email }}
-          </li>
-          <li class="list-group-item">
-            <i class="fa fa-phoneNumber float-right"></i>Phone :
-            {{ user?.phoneNumber }}
-          </li>
-        </ul>
-        <div class="card-body">
-          <div class="float-right btn-group btn-group-sm">
-            <a (click)="onOpenModal(user, 'edit')" class="btn btn-primary tooltips" data-placement="top"
-              data-original-title="Edit"><i class="fa fa-pencil"></i>
-            </a>
-            <a (click)="onOpenModal(user, 'delete')" class="btn btn-secondary tooltips" data-placement="top"
-              data-original-title="Delete"><i class="fa fa-times"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Add user Modal -->
-  <div class="modal fade" id="adduserModal" tabindex="-1" role="dialog" aria-labelledby="adduserModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="adduserModalLabel">Add User</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form #addForm="ngForm" (ngSubmit)="onAddUser(addForm)">
-            <div class="form-group">
-              <label for="firstName">First Name</label>
-              <input type="text" ngModel name="firstName" class="form-control" id="firstName" placeholder="firstName"
-                required />
-            </div>
-            <div class="form-group">
-              <label for="lastName">Last Name</label>
-              <input type="text" ngModel name="lastName" class="form-control" id="lastName" placeholder="lastName"
-                required />
-            </div>
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" ngModel name="email" class="form-control" id="email" placeholder="Email" required />
-            </div>
-            <div class="form-group">
-              <label for="phoneNumber">Phone Number</label>
-              <input type="text" ngModel name="phoneNumber" class="form-control" id="phoneNumber"
-                placeholder="Phone Number" required />
-            </div>
-            <div class="form-group">
-              <label for="birthday">Birthday date</label>
-              <input type="text" ngModel name="birthday" name="birthday" class="form-control" id="birthday"
-                placeholder="birthday" />
-            </div>
-            <div class="modal-footer">
-              <button type="button" id="add-user-form" class="btn btn-secondary" data-dismiss="modal">
-                Close
-              </button>
-              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">
-                Save changes
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Edit Modal -->
-  <div class="modal fade" id="updateuserModal" tabindex="-1" role="dialog" aria-labelledby="userEditModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="updateuserModalLabel">
-            Edit user {{ user?.firstName }} {{ user?.lastName }}
-          </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        < class="modal-body">
-          <form #editForm="ngForm">
-            <div class="form-group">
-              <label for="firstName">First Name</label>
-              <input type="text" ngModel="{{ editUser?.firstName }}" name="firstName" class="form-control"
-                id="firstName" aria-describedby="firstName" placeholder="firstName" />
-            </div>
-            <label for="lastName">Last Name</label>
-            <input type="text" ngModel="{{ editUser?.lastName }}" name="lastName" class="form-control" id="lastName"
-              aria-describedby="lastName" placeholder="lastName" />
-            <input type="hidden" ngModel="{{ editUser?.id }}" name="id" class="form-control" id="id" placeholder="id" />
-            <input type="hidden" ngModel="{{ editUser?.token }}" name="token" class="form-control" id="token"
-              placeholder="token" />
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" ngModel="{{ editUser?.email }}" name="email" class="form-control" id="email"
-                placeholder="Email" />
-            </div>
-            <div class="form-group">
-              <label for="birthday">Birthday date</label>
-              <input type="text" ngModel="{{ editUser?.birthday }}" name="birthday" class="form-control" id="birthday"
-                placeholder="birthday" />
-            </div>
-            <div class="form-group">
-              <label for="phoneNumber">Phone Number</label>
-              <input type="text" ngModel="{{ editUser?.phoneNumber }}" name="phoneNumber" class="form-control"
-                id="phoneNumber" name="phoneNumber" placeholder="phoneNumber" />
-            </div>
-            <div class="modal-footer">
-              <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">
-                Close
-              </button>
-              <button (click)="onUpdateUser(editForm.value)" data-dismiss="modal" class="btn btn-primary">
-                Save changes
-              </button>
-            </div>
-          </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Delete Modal -->
-<div class="modal fade" id="deleteuserModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="deleteModelLabel">Delete User</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Are you sure you want to delete user {{ user?.firstName }}?</p>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">
-            No
-          </button>
-          <button (click)="onDeleteUser(user?.id)" class="btn btn-danger" data-dismiss="modal">
-            Yes
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Notification for no users -->
-<div *ngIf="users?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
-  <div class="alert alert-info" role="alert">
-    <h4 class="alert-heading">NO USERS!</h4>
-    <p>No contacts were found.</p>
-  </div>
-</div>
+</html>
