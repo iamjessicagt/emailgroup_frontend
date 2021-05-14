@@ -14,6 +14,23 @@
     padding: env(safe-area-inset);
 }
 
+body{
+    height: fit-content;
+}
+
+.user-list{
+    padding: 4em;
+    top: 0!important;
+}
+
+.contact-list-title{
+    font-family: 'Raleway', sans-serif;
+    padding-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .navbar{
     background-color: #3a3343;
     margin: 0!important;
@@ -33,10 +50,9 @@ header{
 }
 
 #hero{
-    /* font-family: 'Pangolin', cursive; */
-    font-family: 'Raleway', sans-serif;
-    font-weight: bold;
-    color: #000;
+   font-family: 'Raleway', sans-serif;
+   font-weight: bold;
+   color: #000;
 }
 
 #hero h1{
