@@ -40,7 +40,12 @@ body{
 
 #dropdownMenuButton {
     width: 120%;
-    background-color: #362b43;
+    background-color: #3a3343;
+    border-color: #a6b1ad;
+}
+
+#dropdownMenuButton:hover {
+    background-color: #a6b1ad;
 }
 
 .dropdown {
@@ -72,159 +77,21 @@ header{
 
 #hero button{
     font-family: 'Segoe UI';
+    border: none;
+
+}
+
+#hero button:hover {
+    background-color: #413f43;
 }
 
 .table{
   text-align: center;
 }
 
-.wrapper {
-    max-width: 500px;
-    border-radius: 5px;
-    margin: 50px auto;
-    padding: 30px 40px;
-}
-
-
-.input-field {
-    border-radius: 5px;
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    border: 1px solid #080110;
-    color: #032206;
-}
-
-.input-field:hover {
-    color: #032206;
-    border: 1px solid #032206;
-}
-
-input {
-    border: none;
-    outline: none;
-    box-shadow: none;
-    width: 100%;
-    padding: 0px 2px;
-    font-family: 'Poppins', sans-serif
-}
-
-.fa-eye-slash.btn {
-    border: none;
-    outline: none;
-    box-shadow: none
-}
-
-a {
-    text-decoration: none;
-    color: #032206;
-    font-weight: 700;
-}
-
-a:hover {
-    text-decoration: none;
-    color: #032206;
-}
-
-.option {
-    position: relative;
-    padding-left: 30px;
-    cursor: pointer
-}
-
-.option label.text-muted {
-    display: block;
-    cursor: pointer
-}
-
-.option input {
-    display: none
-}
-
-.checkmark {
-    position: absolute;
-    top: 3px;
-    left: 0;
-    height: 20px;
-    width: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 50%;
-    cursor: pointer
-}
-
-.option input:checked~.checkmark:after {
-    display: block
-}
-
-.option .checkmark:after {
-    content: "";
-    width: 13px;
-    height: 13px;
-    display: block;
-    background: #032206;
-    position: absolute;
-    top: 48%;
-    left: 53%;
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    transition: 300ms ease-in-out 0s
-}
-
-.option input[type="radio"]:checked~.checkmark {
-    background: #fff;
-    transition: 300ms ease-in-out 0s;
-    border: 1px solid #032206;
-}
-
-.option input[type="radio"]:checked~.checkmark:after {
-    transform: translate(-50%, -50%) scale(1)
-}
-
-.btn.btn-block {
-    border-radius: 20px;
-    background-color: #032206;
-    color: #fff
-}
 
 .btn.btn-block:hover {
     background-color: #032206;
-}
-
-@media(max-width: 575px) {
-    .wrapper {
-        margin: 10px
-    }
-}
-
-@media(max-width:424px) {
-    .wrapper {
-        padding: 30px 10px;
-        margin: 5px
-    }
-
-    .option {
-        position: relative;
-        padding-left: 22px
-    }
-
-    .option label.text-muted {
-        font-size: 0.95rem
-    }
-
-    .checkmark {
-        position: absolute;
-        top: 2px
-    }
-
-    .option .checkmark:after {
-        top: 50%
-    }
-
-    #forgot {
-        font-size: 0.95rem
-    }
 }
 
 .search {
@@ -241,7 +108,8 @@ a:hover {
 
 .search input:focus {
     box-shadow: none;
-    border: 2px solid #080110
+    border: 2px solid #827c88;
+    color: #211929;
 }
 
 .search .fa-search {
@@ -256,6 +124,16 @@ a:hover {
     right: 5px;
     height: 40px;
     width: 90px;
-    background: #80798a
-    
+    background: #67616f;
+    color: #dbdadd;
+    font-weight: 200;
+}
+
+.search button:hover {
+    text-decoration: none;
+    background-color: #80798a;
+}
+
+#userImg img{
+    width: 8%;
 }
