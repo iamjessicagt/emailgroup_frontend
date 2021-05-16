@@ -17,17 +17,18 @@
   <title>Mcknight Crossings Church Group Email</title>
 </head>
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light justify-content-between flex-nowrap flex-row">
+  <nav class="navbar navbar-expand-lg navbar-light justify-content-between">
     <a href="index.html" class="navbar-brand"><img src="/assets/imgs/logo.png" alt="Logo" title="Logo"></a>
-    <div class="container-fluid">
-      <ul class="nav navbar-nav flex-row float-left">
-        <li class="nav-item"><a class="nav-link pr-3 text-light" href="#" routerLink="/login"
-            routerLinkActive="active">LOGIN</a></li>
-        <li class="nav-item"><a class="nav-link pr-3 text-light" href="#" routerLink="/"
-            routerLinkActive="active">HOME</a></li>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+        aria-expanded="false" aria-haspopup="true"><img src="/assets/imgs/menu1.svg" alt="Menu" title="Menu"></button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="#">Log in/out</a></li>
+        <li><a class="dropdown-item" href="#">Edit Contact</a></li>
+        <li><a class="dropdown-item" href="#">Home</a></li>
       </ul>
-      <!-- <a href="/" class="navbar-brand float-left fs-11 text-center">VIEW ON <br> HOME </a> -->
     </div>
+
   </nav>
 
   <section class="py-5 text-center mt-5" id="hero">
@@ -42,9 +43,17 @@
 
 <body>
   <section>
+    <div class="container">
+      <br>
+      <div class="row d-flex">
+        <div class="col-md-5">
+          <div class="search"> <i class="fa fa-search"></i> <input type="text" class="form-control"
+              placeholder="Search a contact/user"> <button class="btn btn-light">Search</button> </div>
+        </div>
+      </div>
+    </div>
     <div class="contact-list-title">
       <h1>CONTACT LIST</h1>
-
     </div>
     <div class="container user-list">
       <table class="table table-striped table-hover">
@@ -56,66 +65,16 @@
             <th scope="col">Copy Email</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody *ngFor="let user of users">
           <tr>
-            <td>Jessica Garcez Taylor</td>
-            <td>jessgarcez@hotmail.com</td>
-            <td>12/29</td>
-            <td><button type="button" class="btn" ngxClipboard [cbContent]="'jessgarcez@hotmail.com'"
-                [container]="container"><img src="./assets/imgs/copy.svg" /></button></td>
-          </tr>
-          <tr>
-            <td>Jessica Garcez Taylor</td>
-            <td>jessgarcez@hotmail.com</td>
-            <td>12/29</td>
-            <td><img src="./assets/imgs/copy.svg" /></td>
-          </tr>
-          <tr>
-            <td>Jessica Garcez Taylor</td>
-            <td>jessgarcez@hotmail.com</td>
-            <td>12/29</td>
-            <td><img src="./assets/imgs/copy.svg" /></td>
-          </tr>
-          <tr>
-            <td>Jessica Garcez Taylor</td>
-            <td>jessgarcez@hotmail.com</td>
-            <td>12/29</td>
-            <td><img src="./assets/imgs/copy.svg" /></td>
-          </tr>
-          <tr>
-            <td>Jessica Garcez Taylor</td>
-            <td>jessgarcez@hotmail.com</td>
-            <td>12/29</td>
-            <td><img src="./assets/imgs/copy.svg" /></td>
-          </tr>
-          <tr>
-            <td>Jessica Garcez Taylor</td>
-            <td>jessgarcez@hotmail.com</td>
-            <td>12/29</td>
-            <td><img src="./assets/imgs/copy.svg" /></td>
-          </tr>
-          <tr>
-            <td>Jessica Garcez Taylor</td>
-            <td>jessgarcez@hotmail.com</td>
-            <td>12/29</td>
-            <td><img src="./assets/imgs/copy.svg" /></td>
-          </tr>
-          <tr>
-            <td>Jessica Garcez Taylor</td>
-            <td>jessgarcez@hotmail.com</td>
-            <td>12/29</td>
-            <td><img src="./assets/imgs/copy.svg" /></td>
-          </tr>
-          <tr>
-            <td>Jessica Garcez Taylor</td>
-            <td>jessgarcez@hotmail.com</td>
-            <td>12/29</td>
-            <td><img src="./assets/imgs/copy.svg" /></td>
+            <td>{{user.firstName}} {{user.lastName}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.birthday}}</td>
+            <td><button type="button" class="btn" ngxClipboard [cbContent]=user.email [container]="container"><img
+                  src="./assets/imgs/copy.svg" /></button></td>
           </tr>
         </tbody>
       </table>
     </div>
   </section>
 </body>
-
-</html>
